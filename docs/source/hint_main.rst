@@ -18,17 +18,12 @@ Hint by Tagineer
 How to use Read the Docs?
 ---------------------------
 
-Resources
-^^^^^^^^^^^
-2. `rst syntax <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ 
-3. `publicate github page <https://blog.github.com/2016-08-22-publish-your-project-documentation-with-github-pages/>`_
-
-Installation
-^^^^^
+1. `rst syntax <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_ 
+2. `publicate github page <https://blog.github.com/2016-08-22-publish-your-project-documentation-with-github-pages/>`_
 
 Install Sphinx.  
 
->>> pip install sphinx sphinx-autobuild
+>>> pip3 install sphinx sphinx-autobuild
 
 Start ReadtheDocs project.
 
@@ -43,3 +38,39 @@ is highly recommended.
 
 >>> cd ./source
 >>> sphinx-autobuild . _build/html
+
+How to deep copy?
+------------------------
+
+>>> in python 
+import copy
+different_obj = copy.deepcopy(current_obj)
+
+How to insert equation?
+---------------------------
+
+In Picture
+^^^^^^^^^^^^
+1. `PNG by MathURL <http://mathurl.com/>`_
+2. `GIF by EqnEditor <http://www.codecogs.com/latex/eqneditor.php>`_
+
+In HTML 
+^^^^^^^^^
+1. Setting globally. 
+
+Add the following line in your home page, 
+and insert latex equation with ``$``.
+
+>>> in HTML
+<script type="text/javascript" 
+src="http://common.cnblogs.com/script/ASCIIMathML.js">
+</script>
+
+2. Use just once.
+
+Insert with ``YOUR_LaTeX_CODE`` replaced by 
+your LaTeX equation.
+
+>>> in HTML
+<img src="http://latex.codecogs.com/gif.latex?YOUR_LaTeX_CODE" />
+
