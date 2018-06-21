@@ -1,3 +1,7 @@
+# Read the Docs related
+_build
+source/_build
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

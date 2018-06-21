@@ -83,4 +83,8 @@ source files. Use the Makefile to build the docs, like so:
 where "builder" is one of the supported builders, e.g. html, latex or linkcheck.
 ```
 
-#### How to publish the Read the Docs document on GitHub pages
+#### How to publish the Read the Docs document on GitHub pages?
+
+1. <https://read-the-docs.readthedocs.io/en/latest/getting_started.html#sign-up-and-connect-an-external-account>	
+   1. Login to Read the Docs [dashboard](http://readthedocs.org/dashboard) with your GitHub account.
+   2. 
