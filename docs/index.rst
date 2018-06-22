@@ -73,4 +73,3 @@ your LaTeX equation.
 
 >>> in HTML
 <img src="http://latex.codecogs.com/gif.latex?YOUR_LaTeX_CODE" />
-
