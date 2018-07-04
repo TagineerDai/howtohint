@@ -13,7 +13,7 @@ Hint by Tagineer
 .. Indices and tables
 =====================
 
-.. * :ref:`1.1`
+
 
 How to use Read the Docs?
 ---------------------------
@@ -23,14 +23,16 @@ How to use Read the Docs?
 
 Install Sphinx.  
 
->>> pip3 install sphinx sphinx-autobuild
+>>> pip3 install sphinx sphinx-autobuild sphinx_rtd_theme
 
 Start ReadtheDocs project.
 
 >>> mkdir docs && cd ./docs
 >>> sphinx-quickstart
 
-Edit content and real time test.  
+Edit content and real time test. 
+
+In your `conf.py`, change `html_theme` to `html_theme = "sphinx_rtd_theme"`.
 
 If you use VS Code, `Live Server 
 <https://ritwickdey.github.io/vscode-live-server/>`_ 
@@ -73,3 +75,76 @@ your LaTeX equation.
 
 >>> in HTML
 <img src="http://latex.codecogs.com/gif.latex?YOUR_LaTeX_CODE" />
+
+How to release a port?
+------------------------
+
+>>> Only one usage of each socket address is normally permitted.
+
+Windows
+^^^^^^^^
+
+Find process using this port.
+
+>>> netstat -ano|findstr <PORT_NUMBER>
+# 172 is the PID of the process
+TCP    127.0.0.1:8001         0.0.0.0:0              LISTENING       172
+
+Kill the process.
+
+>>> tskill 172
+
+Linux
+^^^^^
+
+>>> sudo kill $(sudo lsof -t -i:<PORT_NUMBER>)
+
+To Force the command:
+
+>>> sudo kill -9 $(sudo lsof -t -i:9001)
+
+Or the same as for NT system:
+
+>>> sudo netstat -lpn |grep :<PORT_NUMBER>
+# 93711 is the process id.
+tcp     0   0 127.0.0.1:8888    0.0.0.0:*   LISTEN      93711/python3
+# Kill the process by pid or pname.
+kill 6782
+
+How to Use Docker?
+---------------------
+
+Build your customized workdir.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+>>> cd into the dir where Dockerfile lives.
+Docker build -t <image_name>.
+docker image rm <image_name>/<image_id>
+docker login # with your docker hub username and passwd
+docker push <image_name>
+
+
+How to setup ``librosa`` env?
+-----------------------------
+
+>>> pip3 install librosa
+sudo apt-get install linuxbrew-wrapper 
+
+How to solve the ``no backend error`` caused by ``audioread``? 
+
+Accroding to `the discussion <https://groups.google.com/forum/#!topic/librosa/Z1-HXBsHLi0/discussion>`_, we should install `audioread <https://github.com/beetbox/audioread>`_'s backends.
+
+Let's try ``ffmpeg``:
+
+>>> sudo add-apt-repository ppa:djcj/hybrid -y
+sudo apt-get update  
+sudo apt-get install ffmpeg -y
+
+>>> # for scikits.samplerate
+sudo apt-get install libsamplerate0 libsamplerate0-dev
+pip install scikits.samplerate
+
+>>> sudo apt-get install linuxbrew-wrapper 
+brew install libsamplerate
+
+Downloaded music from http://www.brainybetty.com/soundsforpowerpoint2.htm.
